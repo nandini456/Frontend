@@ -1,33 +1,37 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaTwitter, FaGithub } from "react-icons/fa";
-import "./Login.css";
 import { Link } from "react-router-dom";
+import { loginUser } from "../api/auth"; // Import API function
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // handleSubmit function triggers on form submission
-  const handleSubmit = (e) => {
+  // Handle login submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Retrieve stored user profile from local storage
-    const storedUser = JSON.parse(localStorage.getItem("userProfile"));
-    if (storedUser) {
-      if (storedUser.email === email && storedUser.password === password) {
-        navigate("/dashboard");
-      } else {
-        alert("Invalid credentials. Please try again.");
-      }
-    } else {
-      alert("No account found. Please sign up first.");
+    try {
+      const response = await loginUser({ email, password });
+      
+      // Save token in local storage
+      localStorage.setItem("token", response.token);
+      toast.success("Login successful!");
+
+      // Redirect after a short delay
+      setTimeout(() => navigate("/dashboard"), 2000);
+    } catch (error) {
+      toast.error(error.message || "Login failed! Please try again.");
     }
   };
 
   return (
     <div className="login_page">
+      <ToastContainer />
       <div className="form-container">
         <h2 className="title">Sign In</h2>
         <form className="form" onSubmit={handleSubmit}>
@@ -66,15 +70,9 @@ function Login() {
         </div>
 
         <div className="social-icons">
-          <button className="icon">
-            <FaGoogle size={24} />
-          </button>
-          <button className="icon">
-            <FaTwitter size={24} />
-          </button>
-          <button className="icon">
-            <FaGithub size={24} />
-          </button>
+          <button className="icon"><FaGoogle size={24} /></button>
+          <button className="icon"><FaTwitter size={24} /></button>
+          <button className="icon"><FaGithub size={24} /></button>
         </div>
 
         <div className="signup">
