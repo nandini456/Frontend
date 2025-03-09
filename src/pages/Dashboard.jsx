@@ -12,16 +12,12 @@ import PersonalizedTips from "./dashboard/PersonalizedTips";
 function Dashboard() {
   return (
     <div className="dashboard-page">
-      <h1>Dashboard Overview</h1>
-
+      <h1>Welcome to Your Dashboard</h1>
       <Profile />
       <ProgressTracking />
       <Notifications />
       <CreditScoreSimulator />
-      
-      {/* Add the Personalized Tips section here */}
       <PersonalizedTips />
-
       <FAQ />
     </div>
   );

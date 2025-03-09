@@ -1,27 +1,62 @@
 // src/pages/Login.jsx
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaTwitter, FaGithub } from "react-icons/fa";
-import "./Login.css"; // Make sure this path is correct
+import "./Login.css";
 import { Link } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // handleSubmit function triggers on form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Retrieve stored user profile from local storage
+    const storedUser = JSON.parse(localStorage.getItem("userProfile"));
+    if (storedUser) {
+      if (storedUser.email === email && storedUser.password === password) {
+        navigate("/dashboard");
+      } else {
+        alert("Invalid credentials. Please try again.");
+      }
+    } else {
+      alert("No account found. Please sign up first.");
+    }
+  };
+
   return (
     <div className="login_page">
       <div className="form-container">
         <h2 className="title">Sign In</h2>
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" />
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div className="input-group">
             <label>Password</label>
-            <input type="password" placeholder="Enter your password" />
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
           <div className="forgot">
             <a href="#">Forgot Password?</a>
           </div>
-          <button className="sign">Sign In</button>
+          <button className="sign" type="submit">
+            Sign In
+          </button>
         </form>
 
         <div className="social-message">
@@ -43,7 +78,7 @@ function Login() {
         </div>
 
         <div className="signup">
-         Don't have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </div>
       </div>
     </div>
