@@ -1,40 +1,51 @@
 // src/pages/Login.jsx
-import React, { useState } from "react";
-import "./Login.css";
+import React from "react";
+import { FaGoogle, FaTwitter, FaGithub } from "react-icons/fa";
+import "./Login.css"; // Make sure this path is correct
+import { Link } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic
-    console.log("Logging in with:", email, password);
-  };
-
   return (
-    <div className="login-page">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div className="login_page">
+      <div className="form-container">
+        <h2 className="title">Sign In</h2>
+        <form className="form">
+          <div className="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" />
+          </div>
+          <div className="forgot">
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button className="sign">Sign In</button>
+        </form>
 
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <div className="social-message">
+          <span className="line"></span>
+          <span className="message">Login with social accounts</span>
+          <span className="line"></span>
+        </div>
 
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="social-icons">
+          <button className="icon">
+            <FaGoogle size={24} />
+          </button>
+          <button className="icon">
+            <FaTwitter size={24} />
+          </button>
+          <button className="icon">
+            <FaGithub size={24} />
+          </button>
+        </div>
 
-        <button type="submit">Login</button>
-      </form>
+        <div className="signup">
+         Don't have an account? <Link to="/signup">Sign up</Link>
+        </div>
+      </div>
     </div>
   );
 }
