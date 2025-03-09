@@ -1,0 +1,65 @@
+
+.navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    padding: 0.8rem 1.5rem;
+    gap: 1rem; 
+  }
+  
+  .navbar__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem; 
+  }
+  
+  .navbar__toggle {
+    background: none;
+    border: none;
+    color: var(--light-bg);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .navbar__logo a {
+    color: var(--light-bg);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  
+  .navbar__links {
+    display: flex;
+    justify-content: center; 
+    gap: 1.5rem;
+  }
+  
+  .navbar__links a {
+    color: var(--light-bg);
+    font-weight: 500;
+    transition: color var(--transition-speed);
+  }
+  
+  .navbar__links a:hover {
+    color: var(--accent-color);
+  }
+  
+  /* Right section: Auth links (Login, Signup) */
+  .navbar__auth {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar__auth a {
+    color: var(--light-bg);
+    font-weight: 500;
+    transition: color var(--transition-speed);
+  }
+  
+  .navbar__auth a:hover {
+    color: var(--accent-color);
+  }
+  
+ 

@@ -1,0 +1,50 @@
+/* src/pages/Login.css */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+  }
+  
+  .login-form {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    border-radius: 6px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .login-form button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  
