@@ -8,7 +8,7 @@
   --primary-color: #0F8666;    /* A deeper green-teal */
   --secondary-color: #1EB2A6;  /* A lighter teal/blue */
   --accent-color: #54C8F2;     /* Light blue accent */
-  --light-bg: #c1f2e3;         /* White */
+  --light-bg: #ffffff;         /* White */
   --dark-text: #333333;        /* Dark gray text */
   --transition-speed: 0.3s;
 }

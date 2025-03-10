@@ -43,6 +43,7 @@
     background-color: var(--secondary-color);
     color: var(--light-bg);
     padding: 0.8rem 1.5rem;
+    margin-left: 30px;
     border: none;
     border-radius: 4px;
     font-weight: 600;

@@ -14,7 +14,8 @@
   background: #fff; /* White background for a card-like effect */
   border-radius: 8px;
   padding: 2rem;
-  width: 320px; /* Fixed width for the card */
+  padding-right: 30px;
+  max-width: 400px; /* Fixed width for the card */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center; /* Center headings, etc. */
 }

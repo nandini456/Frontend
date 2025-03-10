@@ -1,24 +1,19 @@
 import React from "react";
 import "./Profile.css";
 
-function Profile() {
+function Profile({ predictionData }) {
   return (
     <section id="profile" className="dashboard-section profile-section">
-      <h2>Profile</h2>
+      <h2>Credit Score Details</h2>
       <form>
-        <label>Name</label>
-        <input type="text" placeholder="John Doe" />
+        <label>Current Credit Score</label>
+        <input type="number" value={700} readOnly /> {/* Hardcoded value */}
 
-        <label>Age</label>
-        <input type="number" placeholder="30" />
+        <label>Predicted Credit Score</label>
+        <input type="number" value={750} readOnly /> {/* Hardcoded value */}
 
-        <label>Monthly Income</label>
-        <input type="number" placeholder="5000" />
-
-        <label>Monthly Expenses</label>
-        <input type="number" placeholder="3000" />
-
-        <button>Update Profile</button>
+        <label>Potential Credit Score</label>
+        <input type="number" value={800} readOnly /> {/* Hardcoded value */}
       </form>
     </section>
   );
